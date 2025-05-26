@@ -1,0 +1,19 @@
+[package]
+name = "wakatiwai-udive"
+version = "0.1.0"
+authors = [
+  "Kumomi Systems",
+  "Johann Scott  <johann@somecollagist.com>"
+]
+edition = "2024"
+description = "An API for Wakatiwai drivers"
+readme = "README.md"
+homepage = "https://kumomi-systems.org/#/projects/wakatiwai"
+repository = "https://github.com/kumomi-systems/wakatiwai-udive"
+license = "GPL-3.0-only"
+keywords = ["bootloader", "boot-manager"]
+categories = ["embedded", "no_std", "os"]
+
+[dependencies]
+uefi = { version = "0.34.1", features = ["alloc", "global_allocator"] }
+uefi-raw = "0.10.0"
