@@ -75,7 +75,7 @@ fn is_valid_driver(handle: &mut FileHandle) -> bool {
     return false;
   }
 
-  false
+  true
 }
 
 /// Returns all drivers from a directory.
