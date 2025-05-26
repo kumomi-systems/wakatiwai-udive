@@ -84,7 +84,7 @@ macro_rules! fs_prelude {
 
     use uefi::Status;
 
-    use springboard::fs::FSDriverArgs;
+    use wakatiwai_udive::fs::FSDriverArgs;
 
     #[uefi::entry]
     #[allow(unsafe_op_in_unsafe_fn)]
@@ -92,11 +92,11 @@ macro_rules! fs_prelude {
       uefi::helpers::init().unwrap();
 
       // Locate driver io struct
-      let find_io_mem_status = springboard::driver::find_io_memory(springboard::FSYS_DRIVER_IO_MEMTYPE);
+      let find_io_mem_status = wakatiwai_udive::driver::find_io_memory(wakatiwai_udive::FSYS_DRIVER_IO_MEMTYPE);
       if find_io_mem_status.is_error() {
         return find_io_mem_status;
       }
-      let dio = springboard::io::DriverIO::allocated_driver_io().unwrap();
+      let dio = wakatiwai_udive::io::DriverIO::allocated_driver_io().unwrap();
 
       let main_status = main(unsafe {
         core::mem::transmute::<*mut core::ffi::c_void, *mut FSDriverArgs>(dio.inptr).as_ref().unwrap()
